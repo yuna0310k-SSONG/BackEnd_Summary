@@ -13,6 +13,11 @@ app.get("/pizzas", async (req, res) => {
   res.json(pizzas);
 });
 
+app.get("/ingredients", async (req, res) => {
+  const ingredients = await prisma.ingredients.findMany();
+  res.json(ingredients);
+});
+
 app.listen(3000, () => {
   console.log("서버 시즌 4(Δ) 시작");
 });
